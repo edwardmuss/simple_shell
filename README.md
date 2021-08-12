@@ -29,5 +29,5 @@
 * What is `EOF` / “end-of-file”?
 
 ## Authors
-Edward Muss -Software Engineer - [Linkedin](https://www.linkedin.com/in/edwardmuss/) - [Website](https://edwardmuss.cloudrebue.co.ke)
+Edward Muss -Software Engineer - [Linkedin](https://www.linkedin.com/in/edwardmuss/) - [Website](https://edwardmuss.cloudrebue.co.ke)<br>
 Siphiwe Kayenda -Software Engineer - [Linkedin](https://www.linkedin.com/in//) - [Twitter](https://edwardmuss.cloudrebue.co.ke)
