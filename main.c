@@ -10,33 +10,41 @@
  */
 
 
-/**
- * Function Declarations for builtin shell commands:
+/*
+  Function Declarations for builtin shell commands:
  */
-int lsh_cd(void);
-int lsh_help(void);
-int lsh_exit(void);
+int lsh_cd(char **args);
+int lsh_help(char **args);
+int lsh_exit(char **args);
 
-/**
- * List of builtin commands, followed by their corresponding functions.
+/*
+  List of builtin commands, followed by their corresponding functions.
  */
-char *builtin_str[] = {"cd", "help", "exit"};
-
-int (*builtin_func[]) (char **) = {&lsh_cd, &lsh_help, &lsh_exit
+char *builtin_str[] = {
+  "cd",
+  "help",
+  "exit"
 };
+
+int (*builtin_func[]) (char **) = {
+  &lsh_cd,
+  &lsh_help,
+  &lsh_exit
+};
+
 int lsh_num_builtins(void)
 {
-return (sizeof(builtin_str) / sizeof(char *));
+  return (sizeof(builtin_str) / sizeof(char *));
 }
 
-/**
-*  Builtin function implementations.
+/*
+  Builtin function implementations.
 */
 
 /**
-  * @brief Bultin command: change directory.
-  * @param args List of args.  args[0] is "cd".  args[1] is the directory.
-  * @return Always returns 1, to continue executing.
+   @brief Bultin command: change directory.
+   @param args List of args.  args[0] is "cd".  args[1] is the directory.
+   @return Always returns 1, to continue executing.
  */
 int lsh_cd(char **args)
 {
@@ -54,14 +62,15 @@ int lsh_cd(char **args)
 }
 
 /**
-  * @brief Builtin command: print help.
-  * @param args List of args.  Not examined.
-  * @return Always returns 1, to continue executing.
+   @brief Builtin command: print help.
+   @param args List of args.  Not examined.
+   @return Always returns 1, to continue executing.
  */
-int lsh_help(void)
+int lsh_help(char **args)
 {
   int i;
-  printf("Stephen Brennan's LSH\n");
+  args[0] = NULL;
+  printf("Edward Muss\n");
   printf("Type program names and arguments, and hit enter.\n");
   printf("The following are built in:\n");
 
@@ -75,19 +84,20 @@ int lsh_help(void)
 }
 
 /**
-  * @brief Builtin command: exit.
-  * @param args List of args.  Not examined.
-  * @return Always returns 0, to terminate execution.
+   @brief Builtin command: exit.
+   @param args List of args.  Not examined.
+   @return Always returns 0, to terminate execution.
  */
-int lsh_exit(void)
+int lsh_exit(char **args)
 {
+  args[0] = NULL;
   return (0);
 }
 
 /**
- * @brief Launch a program and wait for it to terminate.
- * @param args Null terminated list of arguments (including program).
- * @return Always returns 1, to continue execution.
+  @brief Launch a program and wait for it to terminate.
+  @param args Null terminated list of arguments (including program).
+  @return Always returns 1, to continue execution.
  */
 int lsh_launch(char **args)
 {
@@ -119,9 +129,9 @@ int lsh_launch(char **args)
 }
 
 /**
-  * @brief Execute shell built-in or launch program.
-  * @param args Null terminated list of arguments.
-  * @return 1 if the shell should continue running, 0 if it should terminate
+   @brief Execute shell built-in or launch program.
+   @param args Null terminated list of arguments.
+   @return 1 if the shell should continue running, 0 if it should terminate
  */
 int lsh_execute(char **args)
 {
@@ -146,8 +156,8 @@ int lsh_execute(char **args)
 
 #define LSH_RL_BUFSIZE 1024
 /**
-  * @brief Read a line of input from stdin.
-  * @return The line from stdin.
+   @brief Read a line of input from stdin.
+   @return The line from stdin.
  */
 char *lsh_read_line(void)
 {
@@ -197,9 +207,9 @@ char *lsh_read_line(void)
 #define LSH_TOK_BUFSIZE 64
 #define LSH_TOK_DELIM " \t\r\n\a"
 /**
-  * @brief Split a line into tokens (very naively).
-  * @param line The line.
-  * @return Null-terminated array of tokens.
+   @brief Split a line into tokens (very naively).
+   @param line The line.
+   @return Null-terminated array of tokens.
  */
 char **lsh_split_line(char *line)
 {
@@ -239,7 +249,7 @@ char **lsh_split_line(char *line)
 }
 
 /**
-  * @brief Loop getting input and executing it.
+   @brief Loop getting input and executing it.
  */
 void lsh_loop(void)
 {
@@ -248,7 +258,7 @@ void lsh_loop(void)
   int status;
 
   do {
-    printf("> ");
+    printf("$ ");
     line = lsh_read_line();
     args = lsh_split_line(line);
     status = lsh_execute(args);
@@ -259,10 +269,10 @@ void lsh_loop(void)
 }
 
 /**
-  * @brief Main entry point.
-  * @param argc Argument count.
-  * @param argv Argument vector.
-  * @return status code
+   @brief Main entry point.
+   @param argc Argument count.
+   @param argv Argument vector.
+   @return status code
  */
 int main(void)
 {
