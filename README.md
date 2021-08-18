@@ -30,4 +30,4 @@
 
 ## Authors
 Edward Muss -Software Engineer - [Linkedin](https://www.linkedin.com/in/edwardmuss/) - [Website](https://edwardmuss.cloudrebue.co.ke)<br>
-Siphiwe Kayenda -Software Engineer - [Linkedin](https://www.linkedin.com/in//) - [Twitter](https://edwardmuss.cloudrebue.co.ke)
+Siphiwe Kayenda -Software Engineer - [Linkedin](https://www.linkedin.com/in/siphiwe-kanyenda-40043995/) - [Twitter](https://twitter.com/SiphiweKanyenda/)
