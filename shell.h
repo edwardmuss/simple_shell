@@ -70,15 +70,16 @@ typedef struct builtin
  * @value: The value of the alias.
  * @next: A pointer to another struct alias_s.
  */
-typedef struct alias_s
-{
-	char *name;
-	char *value;
-	struct alias_s *next;
-} alias_t;
+/**
+*typedef struct alias_s
+*{
+*	char *name;
+*	char *value;
+*	struct alias_s *next;
+*} alias_t;
 /* Global aliases linked list */
-alias_t *aliases;
-
+/*alias_t *aliases;
+*/
 /* ----------Process prototype------------*/
 int read_line(sh_t *);
 int split_line(sh_t *);
@@ -95,7 +96,6 @@ int _strcmp(char *s1, char *s2);
 /* ----------More String prototype-------*/
 char *_strcpy(char *dest, char *source);
 int _strspn(char *s, char *accept);
-
 
 /* ----------Memory prototype------------*/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
@@ -117,30 +117,7 @@ int _atoi(char *c);
 int print_error(sh_t *data);
 int write_history(sh_t *data);
 int _isalpha(int c);
-void free_env(void)
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
-list_t *env_linked_list(char **env);
-int _print_env(char *av, char **env);
-int _unsetenv(list_t **env, char **str);
-int _setenv(list_t **env, char **str);
-int find_env(list_t *env, char *str);
-int _print_env(char *av, char **env);
-int _unsetenv(list_t **env, char **str);
-int _setenv(list_t **env, char **str);
-int find_env(list_t *env, char *str);
-void help_all(void);
-void help_alias(void);
-void help_cd(void);
-void help_exit(void);
-void help_help(void);
-void help_env(void);
-void help_setenv(void);
-void help_unsetenv(void);
-void help_history(void);
-
-/* Error Handling */
-int create_error(char **args, int err);
-char *error_env(char **args);
 
 
 /* -------------Builtins-----------------*/
@@ -154,14 +131,6 @@ int check_builtin(sh_t *data);
 int is_path_form(sh_t *data);
 void is_short_form(sh_t *data);
 int is_builtin(sh_t *data);
-
-/*
-  List of builtin commands.
- */
-static char *builtin_str[] = {
-    "exit",
-    "cd",
-    "pwd"};
 
 
 #endif /* SHELL_H */
