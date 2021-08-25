@@ -1,7 +1,3 @@
-/*
- * File: error.c
- */
-
 #include "shell.h"
 
 /**
