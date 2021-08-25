@@ -1,130 +1,83 @@
 /*
- * File: errors.c
+ * File: error.c
  */
 
 #include "shell.h"
 
-int num_len(int num);
-char *_itoa(unsigned int n);
-int create_error(char **args, int err);
-int print_error(sh_t *data);
-/*int write_history(sh_t *data __attribute__((unused)))*/
-
 /**
- * num_len - Counts the digit length of a number.
- * @num: The number to measure.
+ * _itoa - convert integer to array
+ * @n: the given number
  *
- * Return: The digit length.
- */
-int num_len(int num)
-{
-	unsigned int num1;
-	int len = 1;
-
-	if (num < 0)
-	{
-		len++;
-		num1 = num * -1;
-	}
-	else
-	{
-		num1 = num;
-	}
-	while (num1 > 9)
-	{
-		len++;
-		num1 /= 10;
-	}
-
-	return (len);
-}
-
-/**
- * _itoa - Converts an integer to a string to enable manipulation.
- * @num: The integer.
- *
- * Return: The converted string.
+ * Return: a pointer to the null terminated string
  */
 char *_itoa(unsigned int n)
 {
-	char *buffer;
-	int len = num_len(num);
-	unsigned int num1;
+	int len = 0, i = 0;
+	char *s;
 
-	buffer = malloc(sizeof(char) * (len + 1));
-	if (!buffer)
+	len = intlen(n);
+	s = malloc(len + 1);
+	if (!s)
 		return (NULL);
-
-	buffer[len] = '\0';
-
-	if (num < 0)
+	*s = '\0';
+	while (n / 10)
 	{
-		num1 = num * -1;
-		buffer[0] = '-';
+		s[i] = (n % 10) + '0';
+		n /= 10;
+		i++;
 	}
-	else
+	s[i] = (n % 10) + '0';
+	array_rev(s, len);
+	s[i + 1] = '\0';
+	return (s);
+}
+/**
+ * _atoi - converts character to integer
+ * @c: the given character
+ *
+ * Return: An integer
+ */
+int _atoi(char *c)
+{
+	unsigned int val = 0;
+	int sign = 1;
+
+	if (c == NULL)
+		return (0);
+	while (*c)
 	{
-		num1 = num;
+		if (*c == '-')
+			sign *= (-1);
+		else
+			val = (val * 10) + (*c - '0');
+		c++;
 	}
-
-	len--;
-	do {
-		buffer[len] = (num1 % 10) + '0';
-		num1 /= 10;
-		len--;
-	} while (num1 > 0);
-
-	return (buffer);
+	return (sign * val);
 }
 
-
 /**
- * create_error - Writes a custom error message to stderr that conforms to shell standards.
- * @args: An array of arguments passed to the function.
- * @err: The error value.
+ * intlen - Determine the number of digit int integer
+ * @num: the given number
  *
- * Return: The error value.
+ * Return: the length of the integer
  */
-int create_error(char **args, int err)
+int intlen(int num)
 {
-	char *error;
+	int len = 0;
 
-	switch (err)
+	while (num != 0)
 	{
-	case -1:
-		error = error_env(args);
-		break;
-	case 1:
-		error = error_1(args);
-		break;
-	case 2:
-		if (*(args[0]) == 'e')
-			error = error_2_exit(++args);
-		else if (args[0][0] == ';' || args[0][0] == '&' || args[0][0] == '|')
-			error = error_2_syntax(args);
-		else
-			error = error_2_cd(args);
-		break;
-	case 126:
-		error = error_126(args);
-		break;
-	case 127:
-		error = error_127(args);
-		break;
+		len++;
+		num /= 10;
 	}
-	write(STDERR_FILENO, error, _strlen(error));
-
-	if (error)
-		free(error);
-	return (err);
-
+	return (len);
 }
 /**
  * print_error - prints error
  * @data: the data structure pointer
  *
  * Return: (Success) a positive number
- *         (Fail) a negative number
+ * ------- (Fail) a negative number
  */
 int print_error(sh_t *data)
 {
@@ -139,12 +92,13 @@ int print_error(sh_t *data)
 	free(idx);
 	return (0);
 }
+
 /**
  * write_history - prints error
  * @data: the data structure pointer
  *
  * Return: (Success) a positive number
- *         (Fail) a negative number
+ * ------- (Fail) a negative number
  */
 int write_history(sh_t *data __attribute__((unused)))
 {
