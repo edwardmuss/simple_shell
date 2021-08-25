@@ -120,6 +120,7 @@ int _atoi(char *c);
 int print_error(sh_t *data);
 int write_history(sh_t *data);
 int _isalpha(int c);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 /* Error Handling */
 int create_error(char **args, int err);
