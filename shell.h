@@ -61,7 +61,6 @@ typedef struct builtin
 {
 	char *cmd;
 	int (*f)(sh_t *data);
-	int (*f)(char **argv, char **front);
 } builtin_t;
 
 /**
