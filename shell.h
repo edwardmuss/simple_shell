@@ -16,6 +16,10 @@
 
 /* Global variable */
 extern char **environ;
+/* Global program name */
+char *name;
+/* Global history counter */
+int hist;
 
 /* Macros */
 #define BUFSIZE 256
@@ -58,11 +62,26 @@ typedef struct sh_data
  *
  * Description: this struct made to manage builtins cmd
  */
-typedef struct builtin
+typedef struct builtin_s
 {
 	char *cmd;
 	int (*f)(sh_t *data);
-} blt_t;
+	int (*f)(char **argv, char **front);
+} builtin_t;
+/**
+ * struct alias_s - A new struct defining aliases.
+ * @name: The name of the alias.
+ * @value: The value of the alias.
+ * @next: A pointer to another struct alias_s.
+ */
+typedef struct alias_s
+{
+	char *name;
+	char *value;
+	struct alias_s *next;
+} alias_t;
+/* Global aliases linked list */
+alias_t *aliases;
 /* ----------Process prototype------------*/
 int read_line(sh_t *);
 int split_line(sh_t *);
@@ -78,6 +97,7 @@ int _strcmp(char *s1, char *s2);
 
 /* ----------More String prototype-------*/
 char *_strcpy(char *dest, char *source);
+int _strspn(char *s, char *accept);
 
 /* ----------Memory prototype------------*/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
@@ -100,6 +120,10 @@ int _atoi(char *c);
 int print_error(sh_t *data);
 int write_history(sh_t *data);
 int _isalpha(int c);
+
+/* Error Handling */
+int create_error(char **args, int err);
+char *error_env(char **args);
 
 /* -------------Builtins-----------------*/
 int abort_prg(sh_t *data);
