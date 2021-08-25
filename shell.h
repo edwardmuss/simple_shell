@@ -98,6 +98,7 @@ int _atoi(char *c);
 int print_error(sh_t *data);
 int write_history(sh_t *data);
 int _isalpha(int c);
+void free_env(void)
 
 /* -------------Builtins-----------------*/
 int abort_prg(sh_t *data);
