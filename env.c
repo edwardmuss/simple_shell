@@ -93,7 +93,3 @@ void index_cmd(sh_t *data)
 {
 	data->index += 1;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 7466a2f888beb0db3ff1b2572d4c20ce7accc11b

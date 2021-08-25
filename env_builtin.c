@@ -10,7 +10,7 @@
  *
  * Return: command exit status
  */
-int builtin__env(Invokable params)
+int builtin__env(char params)
 {
 	char **args __attribute__((unused)) = params.args;
 	char **env = set_env(NULL, NULL);
