@@ -114,8 +114,9 @@ void array_rev(char *arr, int len);
 int _print_env(char *av, char **env);
 
 /* ----------More tools prototype--------*/
-char *_itoa(unsigned int n);
+char *_itoa(int num);
 int intlen(int num);
+int num_len(int num);
 int _atoi(char *c);
 int print_error(sh_t *data);
 int write_history(sh_t *data);
