@@ -61,24 +61,8 @@ typedef struct builtin
 {
 	char *cmd;
 	int (*f)(sh_t *data);
-} builtin_t;
+} blt_t;
 
-/**
- * struct alias_s - A new struct defining aliases.
- * @name: The name of the alias.
- * @value: The value of the alias.
- * @next: A pointer to another struct alias_s.
- */
-/**
-*typedef struct alias_s
-*{
-*	char *name;
-*	char *value;
-*	struct alias_s *next;
-*} alias_t;
-/* Global aliases linked list */
-/*alias_t *aliases;
-*/
 /* ----------Process prototype------------*/
 int read_line(sh_t *);
 int split_line(sh_t *);
@@ -116,7 +100,6 @@ int _atoi(char *c);
 int print_error(sh_t *data);
 int write_history(sh_t *data);
 int _isalpha(int c);
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 
 /* -------------Builtins-----------------*/
