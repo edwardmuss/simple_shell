@@ -148,4 +148,13 @@ int is_path_form(sh_t *data);
 void is_short_form(sh_t *data);
 int is_builtin(sh_t *data);
 
+/*
+  List of builtin commands.
+ */
+static char *builtin_str[] = {
+    "exit",
+    "cd",
+    "pwd"};
+
+
 #endif /* SHELL_H */
