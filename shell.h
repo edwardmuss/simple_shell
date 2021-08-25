@@ -12,6 +12,7 @@
 #include <signal.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <dirent.h>
 
 /* Global variable */
 extern char **environ;
@@ -90,6 +91,7 @@ void signal_handler(int signo);
 char *_getenv(char *path_name);
 void index_cmd(sh_t *data);
 void array_rev(char *arr, int len);
+int _print_env(char *av, char **env);
 
 /* ----------More tools prototype--------*/
 char *_itoa(unsigned int n);
