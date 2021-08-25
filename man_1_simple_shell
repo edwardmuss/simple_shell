@@ -19,6 +19,10 @@ system.
 A  simple command is a sequence of optional variable assignments followed by blank-separated words and redirections, 
 and terminated by a control operator.  The first word specifies the command to be
 executed, and is passed as argument zero.  The remaining words are passed as arguments to the invoked command.
+.SH OVERVIEW
+The shell is a command that reads lines from either a file or the terminal, interprets them, and g
+enerally executes other commands. It is the program that is running when a user logs into the syst
+em.
 .PP
 The return value of a simple command is its exit status, or 128+n if the command is terminated by signal n.
 .SS
