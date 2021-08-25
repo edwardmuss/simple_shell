@@ -8,17 +8,18 @@ hsh \- Simple Shell
 hsh \- is a ALX software Engineering course
 .SH DESCRIPTION
 .B hsh
-is a shell command interpreter that executes command read from the standard input or from file.
+is a command language interpreter that executes commands read from the standard input
+device (keyboard) or from a plain text file.
 .B hsh
-is intend to be a clone of the standard command interpreter of 
-.B Unix
-and 
-.B Unix-like
-system.
+is intend to be a clone of the standard command interpreter of Unix and Unix-like system.
 .SH OPTIONS
 A  simple command is a sequence of optional variable assignments followed by blank-separated words and redirections, 
 and terminated by a control operator.  The first word specifies the command to be
 executed, and is passed as argument zero.  The remaining words are passed as arguments to the invoked command.
+.SH OVERVIEW
+The shell is a command that reads lines from either a file or the terminal, interprets them, and g
+enerally executes other commands. It is the program that is running when a user logs into the syst
+em.
 .PP
 The return value of a simple command is its exit status, or 128+n if the command is terminated by signal n.
 .SS
