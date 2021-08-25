@@ -93,3 +93,14 @@ void index_cmd(sh_t *data)
 {
 	data->index += 1;
 }
+/**
+ * free_env - frees all environment variables
+ *
+ * Return: void
+ */
+void free_env(void)
+{
+	char **env = set_env(NULL, NULL);
+
+	drop_2d((void **)env);
+}
