@@ -111,7 +111,6 @@ void signal_handler(int signo);
 char *_getenv(char *path_name);
 void index_cmd(sh_t *data);
 void array_rev(char *arr, int len);
-int _print_env(char *av, char **env);
 
 /* ----------More tools prototype--------*/
 char *_itoa(int num);
@@ -122,6 +121,15 @@ int print_error(sh_t *data);
 int write_history(sh_t *data);
 int _isalpha(int c);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+list_t *env_linked_list(char **env);
+int _print_env(char *av, char **env);
+int _unsetenv(list_t **env, char **str);
+int _setenv(list_t **env, char **str);
+int find_env(list_t *env, char *str);
+int _print_env(char *av, char **env);
+int _unsetenv(list_t **env, char **str);
+int _setenv(list_t **env, char **str);
+int find_env(list_t *env, char *str);
 void help_all(void);
 void help_alias(void);
 void help_cd(void);
