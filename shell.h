@@ -62,10 +62,7 @@ typedef struct builtin
 	char *cmd;
 	int (*f)(sh_t *data);
 } blt_t;
-<<<<<<< HEAD
-=======
 
->>>>>>> 7466a2f888beb0db3ff1b2572d4c20ce7accc11b
 /* ----------Process prototype------------*/
 int read_line(sh_t *);
 int split_line(sh_t *);
@@ -81,10 +78,7 @@ int _strcmp(char *s1, char *s2);
 
 /* ----------More String prototype-------*/
 char *_strcpy(char *dest, char *source);
-<<<<<<< HEAD
-=======
 int _strspn(char *s, char *accept);
->>>>>>> 7466a2f888beb0db3ff1b2572d4c20ce7accc11b
 
 /* ----------Memory prototype------------*/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
@@ -107,10 +101,7 @@ int print_error(sh_t *data);
 int write_history(sh_t *data);
 int _isalpha(int c);
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 7466a2f888beb0db3ff1b2572d4c20ce7accc11b
 /* -------------Builtins-----------------*/
 int abort_prg(sh_t *data);
 int change_dir(sh_t *data);
@@ -123,8 +114,5 @@ int is_path_form(sh_t *data);
 void is_short_form(sh_t *data);
 int is_builtin(sh_t *data);
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 7466a2f888beb0db3ff1b2572d4c20ce7accc11b
 #endif /* SHELL_H */
