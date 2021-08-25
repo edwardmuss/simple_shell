@@ -76,7 +76,7 @@ int _strlen(char *str);
 char *_strchr(char *str, char c);
 int _strcmp(char *s1, char *s2);
 
-/* ----------More String prototype-------*/
+/* ----------String prototype2-------*/
 char *_strcpy(char *dest, char *source);
 int _strspn(char *s, char *accept);
 
@@ -86,21 +86,18 @@ char *_memset(char *s, char byt, unsigned int n);
 char *_memcpy(char *dest, char *src, unsigned int n);
 int free_data(sh_t *);
 
-/* ----------Tools prototype-------------*/
 void *fill_an_array(void *a, int el, unsigned int len);
 void signal_handler(int signo);
 char *_getenv(char *path_name);
 void index_cmd(sh_t *data);
 void array_rev(char *arr, int len);
 
-/* ----------More tools prototype--------*/
 char *_itoa(unsigned int n);
 int intlen(int num);
 int _atoi(char *c);
 int print_error(sh_t *data);
 int write_history(sh_t *data);
 int _isalpha(int c);
-
 
 /* -------------Builtins-----------------*/
 int abort_prg(sh_t *data);

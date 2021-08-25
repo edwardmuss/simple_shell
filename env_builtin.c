@@ -10,16 +10,16 @@
  *
  * Return: command exit status
  */
-int builtin__env(char params)
+int builtin__env(void)
 {
-	char **args __attribute__((unused)) = params.args;
-	char **env = set_env(NULL, NULL);
+	/* char **args __attribute__((unused)) = params.args;*/
+	char **env = NULL;
 	uint env_i = 0;
 
 	while (env[env_i] != NULL)
 	{
-		put_s(env[env_i++]);
-		put_s("\n");
+		puts(env[env_i++]);
+		puts("\n");
 	}
 	return (0);
 }
