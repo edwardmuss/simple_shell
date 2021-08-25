@@ -15,10 +15,6 @@
 
 /* Global variable */
 extern char **environ;
-/* Global program name */
-char *name;
-/* Global history counter */
-int hist;
 
 /* Macros */
 #define BUFSIZE 256
