@@ -121,6 +121,15 @@ int print_error(sh_t *data);
 int write_history(sh_t *data);
 int _isalpha(int c);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+void help_all(void);
+void help_alias(void);
+void help_cd(void);
+void help_exit(void);
+void help_help(void);
+void help_env(void);
+void help_setenv(void);
+void help_unsetenv(void);
+void help_history(void);
 
 /* Error Handling */
 int create_error(char **args, int err);
