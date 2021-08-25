@@ -98,9 +98,10 @@ void index_cmd(sh_t *data)
  *
  * Return: void
  */
-void free_env(void)
-{
-	char **env = set_env(NULL, NULL);
-
-	drop_2d((void **)env);
-}
+/**
+*void free_env(void)
+*{
+*	char **env = set_env(NULL, NULL);
+*
+*	drop_2d((void **)env);
+*}
