@@ -1,10 +1,37 @@
 #include "shell.h"
+
+/**
+ * find_env - find given environmental variable in linked list
+ * @env: environmental variable linked list
+ * @str: variable name
+ * Return: (Success) a positive number
+ * 	   (Fail) a negative number
+ */
+int find_env(list_t *env, char *str)
+{
+	int j = 0, index = 0;
+
+	while (env != NULL)
+	{
+	j = 0;
+	while ((env->var)[j] == str[j]) /* find desired env variable */
+		j++;
+	if (str[j] == '\0') /* if matches entirely, break, return idx */
+		break;
+	env = env->next;
+	index++;
+	}
+	if (env == NULL)
+		return (-1);
+	return (index);
+}
+
 /**
  * _getenv - gets the path
  * @path_name: a pointer to the struct of data
  *
  * Return: (Success) a positive number
- * ------- (Fail) a negative number
+ * 	   (Fail) a negative number
  */
 char *_getenv(char *path_name)
 {
@@ -28,6 +55,7 @@ char *_getenv(char *path_name)
 	}
 	return (NULL);
 }
+
 /**
  * signal_handler - handle the process interrept signal
  * @signo: the signal identifier
