@@ -62,6 +62,7 @@ typedef struct builtin
 	char *cmd;
 	int (*f)(sh_t *data);
 } blt_t;
+
 /* ----------Process prototype------------*/
 int read_line(sh_t *);
 int split_line(sh_t *);
@@ -75,8 +76,9 @@ int _strlen(char *str);
 char *_strchr(char *str, char c);
 int _strcmp(char *s1, char *s2);
 
-/* ----------More String prototype-------*/
+/* ----------String prototype2-------*/
 char *_strcpy(char *dest, char *source);
+int _strspn(char *s, char *accept);
 
 /* ----------Memory prototype------------*/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
@@ -84,14 +86,12 @@ char *_memset(char *s, char byt, unsigned int n);
 char *_memcpy(char *dest, char *src, unsigned int n);
 int free_data(sh_t *);
 
-/* ----------Tools prototype-------------*/
 void *fill_an_array(void *a, int el, unsigned int len);
 void signal_handler(int signo);
 char *_getenv(char *path_name);
 void index_cmd(sh_t *data);
 void array_rev(char *arr, int len);
 
-/* ----------More tools prototype--------*/
 char *_itoa(unsigned int n);
 int intlen(int num);
 int _atoi(char *c);
@@ -110,5 +110,6 @@ int check_builtin(sh_t *data);
 int is_path_form(sh_t *data);
 void is_short_form(sh_t *data);
 int is_builtin(sh_t *data);
+
 
 #endif /* SHELL_H */
